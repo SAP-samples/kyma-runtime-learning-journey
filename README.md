@@ -5,7 +5,7 @@
 Welcome to this repository for the learning journey "Delivering Side-by-Side Extensibility on SAP BTP, Kyma runtime". This repository contains the source code for sample applications and templates for the exercises of the learning journey.
 
 ## Requirements
-Enroll in the free-of-charge learning journey "Delivering Side-by-Side Extensibility on SAP BTP, Kyma runtime" [learning.sap.com](https://learning.sap.com/).
+Enroll in the free-of-charge learning journey "Delivering Side-by-Side Extensibility on SAP BTP, Kyma runtime" [learning.sap.com](https://learning.sap.com/learning-journey/delivering-side-by-side-extensibility-on-sap-btp-kyma-runtime).
 
 Please follow the steps there to work with the sample applications and templates.
 
