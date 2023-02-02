@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kyma
+  labels:
+    app: hello-kyma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-kyma
+  template:
+    metadata:
+      labels:
+        app: hello-kyma
+    spec:
+      containers:
+      - name: hello-kyma
+        image: ghcr.io/sap-samples/kyma-runtime-learning-journey/hello-kyma:1.0.0
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 100Mi
+          requests:
+            memory: 32Mi
+        ports:
+        - name: http
+          containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-kyma
+  labels:
+    app: hello-kyma
+spec:
+  selector:
+    app: hello-kyma
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP

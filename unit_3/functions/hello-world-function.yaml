@@ -1,0 +1,49 @@
+apiVersion: serverless.kyma-project.io/v1alpha2
+kind: Function
+metadata:
+  name: hello-world-function
+  labels:
+    app: hello-world-function
+spec:
+  runtime: nodejs16
+  source: 
+    inline:
+      dependencies: |
+        { 
+          "name": "hello-world-function",
+          "version": "1.0.0",
+          "dependencies": {}
+        } 
+      source: |-
+        module.exports = {
+            main: async function (event, context) {
+              const message = `Hello ` + process.env.NAME
+                + ` from the Kyma Function ${context["function-name"]}`
+                + ` running on ${context.runtime}!`;
+              console.log(message);
+              return message;
+            }
+          }
+  scaleConfig:
+    minReplicas: 1
+    maxReplicas: 5
+  resourceConfiguration:
+    function:
+      resources:
+        limits:
+          cpu: 1
+          memory: 1Gi
+        requests:
+          cpu: 500m
+          memory: 500Mi
+    build:
+      resources:
+        limits:
+          cpu: 2
+          memory: 2Gi
+        requests:
+          cpu: 1
+          memory: 1Gi 
+  env:
+    - name: NAME
+      value: "Kyma"
