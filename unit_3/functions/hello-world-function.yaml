@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-world-function
 spec:
-  runtime: nodejs16
+  runtime: nodejs20
   source: 
     inline:
       dependencies: |
@@ -23,27 +23,7 @@ spec:
               console.log(message);
               return message;
             }
-          }
-  scaleConfig:
-    minReplicas: 1
-    maxReplicas: 5
-  resourceConfiguration:
-    function:
-      resources:
-        limits:
-          cpu: 1
-          memory: 1Gi
-        requests:
-          cpu: 500m
-          memory: 500Mi
-    build:
-      resources:
-        limits:
-          cpu: 2
-          memory: 2Gi
-        requests:
-          cpu: 1
-          memory: 1Gi 
+          } 
   env:
     - name: NAME
       value: "Kyma"
