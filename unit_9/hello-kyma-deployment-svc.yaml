@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: hello-kyma
-        image: ghcr.io/sap-samples/kyma-runtime-learning-journey/hello-kyma:1.0.0
+        image: ghcr.io/sap-samples/kyma-runtime-learning-journey/hello-kyma:1.1.0
         imagePullPolicy: Always
         resources:
           limits:
@@ -32,6 +32,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: hello-kyma
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
   labels:
     app: hello-kyma
 spec:
