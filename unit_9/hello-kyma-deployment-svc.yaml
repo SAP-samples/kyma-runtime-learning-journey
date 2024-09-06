@@ -17,13 +17,15 @@ spec:
     spec:
       containers:
       - name: hello-kyma
-        image: ghcr.io/sap-samples/kyma-runtime-learning-journey/hello-kyma:1.1.0
+        image: ghcr.io/sap-samples/kyma-runtime-learning-journey/hello-kyma:1.0.0
         imagePullPolicy: Always
         resources:
           limits:
             memory: 100Mi
+            cpu: 100m
           requests:
             memory: 32Mi
+            cpu: 10m
         ports:
         - name: http
           containerPort: 8080
