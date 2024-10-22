@@ -22,8 +22,10 @@ spec:
         resources:
           limits:
             memory: 100Mi
+            cpu: 100m
           requests:
             memory: 32Mi
+            cpu: 10m
         ports:
         - name: http
           containerPort: 8080
@@ -32,6 +34,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: hello-kyma
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
   labels:
     app: hello-kyma
 spec:
